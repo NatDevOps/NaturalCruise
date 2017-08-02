@@ -38,10 +38,10 @@ LOCAL
 /*
 LOCAL                    /* variables for user exit USR0020N 
 01 PARM-AREA             /* Parameters for CALLNAT
-02 TYPE         (A01)   init <'N'> /* 'U' or 'N' 
+02 TYPE         (A01)   INIT <'N'> /* 'U' or 'N' 
   02 APPLICATION  (A08)              /* Must not be blank for type = 'U'
   02 ERROR-NUMBER (N04)              /* 1 thru 9999
-02 LANG-NUMB    (A01)  init <'1'>  /* Language number 
+02 LANG-NUMB    (A01)  INIT <'1'>  /* Language number 
   02 REDEFINE LANG-NUMB
     03 LANG-NUMB-I (I1)
   02 RESPONSE     (N04)   /* Error during execution of USR0020N
@@ -101,7 +101,7 @@ DEFINE SUBROUTINE SUB-FIND-CRUISE
 FIND NCCRUISE CRUISE-ID = #CR-ID-IO
   IF NO RECORDS FOUND
     RESET MAPFIELDS
-    REINPUT FULL 'Sorry - no Cruise found for Id' MARK *#CR-ID-IO
+    REINPUT FULL 'Really Sorry - no Cruise found for Id' MARK *#CR-ID-IO
   END-NOREC
 /* provoke Error
 /*  COMPUTE NCCRUISE.CRUISE-ID = NCCRUISE.CRUISE-ID / 0
